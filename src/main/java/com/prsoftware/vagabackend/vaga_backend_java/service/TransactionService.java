@@ -31,7 +31,7 @@ public class TransactionService {
     public DoubleSummaryStatistics getStatistics(){
         OffsetDateTime now = OffsetDateTime.now(); //Pegando a Data e Hora da Transação
         return transactions.stream()
-                .filter(t -> t.getDataHora().isAfter(now.minusSeconds(60))) //Filtrando para ver se a Transação está dentro de 1 minuto
+                //.filter(t -> t.getDataHora().isAfter(now.minusSeconds(60))) //Filtrando para ver se a Transação está dentro de 1 minuto
                 .mapToDouble(Transaction::getValor) //Pegando o Valor
                 .summaryStatistics();
     }
